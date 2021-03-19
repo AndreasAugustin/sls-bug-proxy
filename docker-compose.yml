@@ -12,8 +12,11 @@ services:
       target: NODE_15
     volumes:
       - node_modules15:/app/node_modules/
+      - ./src/:/app/src/
+      - ./package.json:/app/package.json:ro
     # no need to try, those keys are copied Ffrom https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
     environment:
+      - DEBUG=*
       - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
       - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
       - AWS_DEFAULT_REGION=us-west-2
@@ -24,7 +27,10 @@ services:
       target: NODE_14
     volumes:
       - node_modules14:/app/node_modules/
+      - ./src/:/app/src/
+      - ./package.json:/app/package.json:ro
     environment:
+      - DEBUG=*
       - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
       - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
       - AWS_DEFAULT_REGION=us-west-2
